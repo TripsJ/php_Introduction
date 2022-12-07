@@ -59,6 +59,13 @@ else if ($now < 21)
 if (isset($_GET['age'])){
 	// Form processing
 	// TODO Gender Input
+	$gender = $_GET['gender'];
+	if ($gender == "M"){
+		$prefix = "Sir";
+	}
+	else{
+		$prefix = "Madame";
+	}
 	$age =(int)$_GET['age'];
 	echo gettype($age);
 	echo $age;
@@ -66,13 +73,13 @@ if (isset($_GET['age'])){
 	switch($age){
 	
 		case ($age <= 12):
-			$greet = "Hello kiddo";
+			$greet =sprintf ("Hello %s kiddo",$prefix);
 			break;
 		case ($age <= 18):
-			$greet = "Hello Teenager";
+			$greet = sprintf ("Hello %s Teenager",$prefix);
 			break;
 		case ($age <= 115):
-				$greet = "Hello Adult";
+				$greet = sprintf ("Hello %s Adult",$prefix);
 				break;
 		default: $greet = "Wow still alive";
 
@@ -84,8 +91,10 @@ if (isset($_GET['age'])){
 <form method="get" action="conditionsDrill.php">
 	<label for="age">...</label>
 	<input type="number" name="age">
-	<input type= "radio" name="gender" value="M">
-	<input type= "radio" name="gender" value="F">
+	<input type= "radio" name="gender" id="m" value="M">
+	<label for="m">M</label>
+	<input type= "radio" name="gender" id="f" value="F">
+	<label for="f">F</label>
 	<input type="submit" name="submit" value="Greet me now">
 </form>
 <p><?php echo $greet?></p>
