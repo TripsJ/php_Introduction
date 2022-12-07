@@ -53,5 +53,41 @@ else if ($now < 21)
 {
 	echo "Good evening";
 }
+// aparently doing if{return} is more usable than if else if
+
+// 3. "Different greetings according to age" Exercise
+if (isset($_GET['age'])){
+	// Form processing
+	// TODO Gender Input
+	$age =(int)$_GET['age'];
+	echo gettype($age);
+	echo $age;
+
+	switch($age){
+	
+		case ($age <= 12):
+			$greet = "Hello kiddo";
+			break;
+		case ($age <= 18):
+			$greet = "Hello Teenager";
+			break;
+		case ($age <= 115):
+				$greet = "Hello Adult";
+				break;
+		default: $greet = "Wow still alive";
+
+	}
+}
+
 
 ?>
+<form method="get" action="conditionsDrill.php">
+	<label for="age">...</label>
+	<input type="number" name="age">
+	<input type= "radio" name="gender" value="M">
+	<input type= "radio" name="gender" value="F">
+	<input type="submit" name="submit" value="Greet me now">
+</form>
+<p><?php echo $greet?></p>
+
+
