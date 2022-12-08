@@ -58,7 +58,7 @@ else if ($now < 21)
 // 3. "Different greetings according to age" Exercise
 if (isset($_GET['age'])){
 	// Form processing
-	// TODO Gender Input
+	
 	$gender = $_GET['gender'];
 	if ($gender == "M"){
 		$prefix = "Sir";
