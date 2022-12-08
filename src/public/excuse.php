@@ -7,12 +7,10 @@ death of the pet (or a family member)
 significant extra-curricular activity
 any other excuse of your choice -->
 <?php
-$child = $_GET['child'];
-$teach = $_GET['teacher'];
-$reason = $_GET['reason'];
+
 date_default_timezone_set('Europe/Berlin');
 $today = date("D d-m-y");
-
+$child = $_GET['child'];
 if (!isset($child)) {
     $excuse = "please indicate the Name of your child";
 } elseif (!isset($teach)){
@@ -23,6 +21,8 @@ if (!isset($child)) {
     $excuse = "Wheres my precious?";
 }
 else{
+    $teach = $_GET['teacher'];
+    $reason = $_GET['reason'];
     $prefix = "{$today} <br> Dear {$teach},<br> my child, {$child}, will be absent today for the following reason: ";
     $suffix = "<br>Thank you for your understanding";
     switch($reason){
