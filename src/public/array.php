@@ -48,6 +48,15 @@ echo '</pre>';
 
 $totalhobbys = count($me['hobbys']) + count($me['mother']['hobbys']);
 
+$webdev = [
+    "frontend" => [],
+    "backend" => []
+];
+$webdev['frontend'][] = "xhtml";
+
+echo '<pre>';
+print_r($webdev);
+echo '<pre>';
 
 ?>
 
